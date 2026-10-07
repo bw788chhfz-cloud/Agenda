@@ -1,0 +1,10 @@
+{
+  "name": "Agendaê",
+  "short_name": "Agendaê",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f5f7fb",
+  "theme_color": "#111827",
+  "lang": "pt-BR",
+  "description": "Agenda simples para profissionais e clientes."
+}

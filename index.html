@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#111827">
+  <meta name="description" content="Agendaê — agenda simples para profissionais e clientes.">
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="styles.css">
+  <title>Agendaê</title>
+</head>
+<body>
+  <div id="app">
+    <header class="topbar">
+      <div>
+        <div class="brand">Agendaê</div>
+        <div class="tagline">Seu horário. Do seu jeito.</div>
+      </div>
+      <button id="resetBtn" class="icon-btn" title="Restaurar dados de teste">↻</button>
+    </header>
+
+    <main>
+      <section id="home" class="screen active">
+        <div class="hero">
+          <span class="eyebrow">MVP • versão 1</span>
+          <h1>Agende sem complicação.</h1>
+          <p>Uma agenda simples para profissionais e clientes.</p>
+        </div>
+        <div class="role-grid">
+          <button class="role-card" data-screen="professional">
+            <span class="role-icon">👩‍💼</span>
+            <strong>Sou profissional</strong>
+            <small>Configure sua agenda e acompanhe seus horários.</small>
+          </button>
+          <button class="role-card" data-screen="client">
+            <span class="role-icon">👤</span>
+            <strong>Sou cliente</strong>
+            <small>Escolha o serviço, dia e horário disponível.</small>
+          </button>
+        </div>
+      </section>
+
+      <section id="professional" class="screen">
+        <div class="screen-head">
+          <button class="back" data-screen="home">←</button>
+          <div><span class="eyebrow">Área profissional</span><h2>Minha agenda</h2></div>
+        </div>
+
+        <div class="card">
+          <label>Nome profissional
+            <input id="proName" value="Studio da Ana" maxlength="60">
+          </label>
+          <label>Serviço
+            <input id="serviceName" value="Unha em gel" maxlength="50">
+          </label>
+          <div class="two">
+            <label>Preço
+              <input id="servicePrice" inputmode="decimal" value="80">
+            </label>
+            <label>Duração
+              <select id="serviceDuration">
+                <option value="30">30 min</option>
+                <option value="60" selected>1 hora</option>
+                <option value="90">1h30</option>
+                <option value="120">2 horas</option>
+              </select>
+            </label>
+          </div>
+          <button id="saveProfile" class="primary">Salvar informações</button>
+          <p id="profileMsg" class="message"></p>
+        </div>
+
+        <div class="card">
+          <div class="section-title">
+            <div><h3>Disponibilidade</h3><small>Escolha os dias em que atende.</small></div>
+          </div>
+          <div id="dayPicker" class="chips"></div>
+          <div class="section-title compact"><div><h3>Horários</h3><small>Toque em um horário para bloquear/desbloquear.</small></div></div>
+          <div id="proSlots" class="slots"></div>
+        </div>
+
+        <div class="card">
+          <div class="section-title"><div><h3>Agendamentos</h3><small>Próximos horários reservados.</small></div></div>
+          <div id="bookingList" class="booking-list"></div>
+        </div>
+      </section>
+
+      <section id="client" class="screen">
+        <div class="screen-head">
+          <button class="back" data-screen="home">←</button>
+          <div><span class="eyebrow">Área do cliente</span><h2>Agendar horário</h2></div>
+        </div>
+
+        <div class="card profile-preview">
+          <div class="avatar">A</div>
+          <div><strong id="clientProName">Studio da Ana</strong><small>Agenda online</small></div>
+        </div>
+
+        <div class="card">
+          <label>Serviço
+            <select id="clientService"></select>
+          </label>
+          <div class="section-title compact"><div><h3>Escolha o dia</h3></div></div>
+          <div id="clientDays" class="chips"></div>
+          <div class="section-title compact"><div><h3>Horários disponíveis</h3><small>Horários já ocupados não aparecem como disponíveis.</small></div></div>
+          <div id="clientSlots" class="slots"></div>
+          <div class="two">
+            <label>Seu nome
+              <input id="clientName" placeholder="Ex.: Maria" maxlength="60">
+            </label>
+            <label>WhatsApp
+              <input id="clientPhone" inputmode="tel" placeholder="(19) 99999-9999" maxlength="20">
+            </label>
+          </div>
+          <button id="confirmBooking" class="primary">Confirmar agendamento</button>
+          <p id="bookingMsg" class="message"></p>
+        </div>
+
+        <div class="card">
+          <div class="section-title"><div><h3>Meu agendamento</h3></div></div>
+          <div id="clientConfirmation" class="empty">Nenhum agendamento nesta sessão.</div>
+        </div>
+      </section>
+    </main>
+
+    <nav class="bottom-nav">
+      <button data-screen="home">⌂<span>Início</span></button>
+      <button data-screen="professional">▣<span>Profissional</span></button>
+      <button data-screen="client">＋<span>Agendar</span></button>
+    </nav>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
